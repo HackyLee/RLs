@@ -23,7 +23,7 @@ class MultiCameraCNN(M):
         self.nets = []
         for _ in range(n):
             net = CNNS[encoder_type]()
-            net.add(Dense(feature_dim, activation_fn))
+            net.add(Dense(feature_dim, activation_fn, kernel_initializer='he_normal', bias_initializer='he_normal'))
             self.nets.append(net)
 
     def call(self, vector_input, visual_input):

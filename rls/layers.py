@@ -17,9 +17,9 @@ class mlp(Sequential):
         """
         super().__init__()
         for u in hidden_units:
-            self.add(layer(u, act_fn))
+            self.add(layer(u, act_fn, kernel_initializer='he_normal', bias_initializer='he_normal'))
         if out_layer:
-            self.add(layer(output_shape, out_activation))
+            self.add(layer(output_shape, out_activation, kernel_initializer='he_normal', bias_initializer='he_normal'))
 
 
 class mlp_with_noisy(Sequential):
@@ -121,6 +121,6 @@ def ConvLayer(conv_function=Conv2D,
     Return:
         A sequential of multi-convolution layers, with Flatten.
     '''
-    layers = Sequential([conv_function(filters=f, kernel_size=k, strides=s, padding=padding, activation=activation) for f, k, s in zip(filters, kernels, strides)])
+    layers = Sequential([conv_function(filters=f, kernel_size=k, strides=s, padding=padding, activation=activation, kernel_initializer='he_normal', bias_initializer='he_normal') for f, k, s in zip(filters, kernels, strides)])
     layers.add(Flatten())
     return layers

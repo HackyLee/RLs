@@ -1,7 +1,7 @@
 atari:
-  noop_max: 30
+  noop_max: 1
   skip: 4
-  max_episode_steps: null
+  max_episode_steps: 400000
   episode_life: true
   clip_rewards: true
   frame_stack: true

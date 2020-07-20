@@ -39,7 +39,7 @@ unity:
 
 gym:
     train:
-        pre_fill_steps: 10000
+        pre_fill_steps: 50000
         render: false
         render_episode: 50000
         eval_while_train: false

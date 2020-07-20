@@ -106,7 +106,10 @@ class Agent:
 
         # ENV
         logger.info('Initialize environment begin...')
-        self.env = make_env(self.env_args.to_dict)
+        try:
+            self.env = make_env(self.env_args.to_dict)
+        except Exception as e:
+            print(e)
         logger.info('Initialize environment successful.')
 
         # ALGORITHM CONFIG
